@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { categories } from "../data/categories";
 
-function TransactionForm({ onAdd }) {
+function TransactionForm({ onAdd, editingTxn, onUpdate }) {
   const [form, setForm] = useState({
     title: "",
     amount: "",
@@ -9,6 +9,12 @@ function TransactionForm({ onAdd }) {
     category: "Food",
     date: new Date().toISOString().slice(0, 10),
   });
+
+  useEffect(() => {
+    if (editingTxn) {
+      setForm(editingTxn);
+    }
+  }, [editingTxn]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -24,13 +30,16 @@ function TransactionForm({ onAdd }) {
 
     if (!form.title || !form.amount) return;
 
-    onAdd({
-      ...form,
-      id: Date.now().toString(),
-      amount: Number(form.amount),
-    });
+    if (editingTxn) {
+      onUpdate(form);
+    } else {
+      onAdd({
+        ...form,
+        id: Date.now().toString(),
+        amount: Number(form.amount),
+      });
+    }
 
-    // reset form
     setForm({
       title: "",
       amount: "",
@@ -42,55 +51,53 @@ function TransactionForm({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit} className="glass-card p-5 rounded-xl space-y-4">
-      <h2 className="text-xl font-bold text-white">Add Transaction</h2>
+      <h2 className="text-xl font-bold text-white">
+        {editingTxn ? "Edit Transaction" : "Add Transaction"}
+      </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          name="title"
-          value={form.title}
-          onChange={handleChange}
-          placeholder="Title"
-          className="form-input"
-        />
+      <input
+        name="title"
+        value={form.title}
+        onChange={handleChange}
+        placeholder="Title"
+        className="form-input"
+      />
 
-        <input
-          name="amount"
-          type="number"
-          value={form.amount}
-          onChange={handleChange}
-          placeholder="Amount"
-          className="form-input"
-        />
-      </div>
+      <input
+        name="amount"
+        type="number"
+        value={form.amount}
+        onChange={handleChange}
+        placeholder="Amount"
+        className="form-input"
+      />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <select name="type" value={form.type} onChange={handleChange} className="form-input">
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
-        </select>
+      <select name="type" value={form.type} onChange={handleChange} className="form-input">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
 
-        <select
-          name="category"
-          value={form.category}
-          onChange={handleChange}
-          className="form-input"
-        >
-          {categories.map((cat) => (
-            <option key={cat}>{cat}</option>
-          ))}
-        </select>
+      <select
+        name="category"
+        value={form.category}
+        onChange={handleChange}
+        className="form-input"
+      >
+        {categories.map((cat) => (
+          <option key={cat}>{cat}</option>
+        ))}
+      </select>
 
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-          className="form-input"
-        />
-      </div>
+      <input
+        type="date"
+        name="date"
+        value={form.date}
+        onChange={handleChange}
+        className="form-input"
+      />
 
       <button className="primary-btn w-full">
-        Add Transaction
+        {editingTxn ? "Update Transaction" : "Add Transaction"}
       </button>
     </form>
   );

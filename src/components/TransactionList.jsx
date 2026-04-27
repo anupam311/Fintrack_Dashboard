@@ -1,6 +1,6 @@
 import { formatCurrency } from "../utils/formatCurrency";
 
-function TransactionList({ transactions }) {
+function TransactionList({ transactions, onDelete, onEdit }) {
   if (transactions.length === 0) {
     return (
       <div className="glass-card p-6 text-center text-slate-400">
@@ -20,19 +20,22 @@ function TransactionList({ transactions }) {
             <th className="px-5 py-3 text-xs text-slate-400 text-right">
               Amount
             </th>
+            <th className="px-5 py-3 text-xs text-slate-400 text-right">
+              Actions
+            </th>
           </tr>
         </thead>
 
         <tbody>
           {transactions.map((txn) => (
             <tr key={txn.id} className="border-t border-white/5">
-              <td className="px-5 py-4 text-sm">{txn.date}</td>
+              <td className="px-5 py-4">{txn.date}</td>
 
-              <td className="px-5 py-4 text-sm font-semibold">
+              <td className="px-5 py-4 font-semibold">
                 {txn.title}
               </td>
 
-              <td className="px-5 py-4 text-sm text-slate-400">
+              <td className="px-5 py-4 text-slate-400">
                 {txn.category}
               </td>
 
@@ -47,6 +50,22 @@ function TransactionList({ transactions }) {
                   {txn.type === "income" ? "+" : "-"}
                   {formatCurrency(txn.amount)}
                 </span>
+              </td>
+
+              <td className="px-5 py-4 text-right space-x-2">
+                <button
+                  onClick={() => onEdit(txn)}
+                  className="text-blue-400 hover:underline text-sm"
+                >
+                  Edit
+                </button>
+
+                <button
+                  onClick={() => onDelete(txn.id)}
+                  className="text-red-400 hover:underline text-sm"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
