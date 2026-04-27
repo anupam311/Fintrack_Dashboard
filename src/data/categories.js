@@ -1,0 +1,57 @@
+export const categories = [
+  "Salary",
+  "Freelance",
+  "Investments",
+  "Food",
+  "Transport",
+  "Shopping",
+  "Education",
+  "Healthcare",
+  "Housing",
+  "Entertainment",
+  "Crypto",
+  "Other",
+];
+
+export const defaultTransactions = [
+  {
+    id: "txn-1",
+    title: "Monthly Salary",
+    category: "Salary",
+    type: "income",
+    amount: 85000,
+    date: "2026-04-01",
+  },
+  {
+    id: "txn-2",
+    title: "React Course",
+    category: "Education",
+    type: "expense",
+    amount: 1499,
+    date: "2026-04-03",
+  },
+  {
+    id: "txn-3",
+    title: "Grocery Shopping",
+    category: "Food",
+    type: "expense",
+    amount: 3200,
+    date: "2026-04-05",
+  },
+  {
+    id: "txn-4",
+    title: "Freelance UI Work",
+    category: "Freelance",
+    type: "income",
+    amount: 12000,
+    date: "2026-04-10",
+  },
+  {
+    id: "txn-5",
+    title: "Bitcoin Purchase",
+    category: "Crypto",
+    type: "expense",
+    amount: 6000,
+    date: "2026-04-12",
+  },
+];
