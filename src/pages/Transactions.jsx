@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { defaultTransactions } from "../data/categories";
 import TransactionList from "../components/TransactionList";
 import TransactionForm from "../components/TransactionForm";
 
 function Transactions() {
-  const [transactions, setTransactions] = useState(defaultTransactions);
+  const [transactions, setTransactions] = useState(() => {
+    const saved = localStorage.getItem("transactions");
+
+    if (saved) {
+      return JSON.parse(saved);
+    }
+
+    return defaultTransactions;
+  });
+
   const [editingTxn, setEditingTxn] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+  }, [transactions]);
 
   function addTransaction(newTxn) {
     setTransactions((prev) => [newTxn, ...prev]);
@@ -17,9 +30,7 @@ function Transactions() {
 
   function updateTransaction(updatedTxn) {
     setTransactions((prev) =>
-      prev.map((txn) =>
-        txn.id === updatedTxn.id ? updatedTxn : txn
-      )
+      prev.map((txn) => (txn.id === updatedTxn.id ? updatedTxn : txn))
     );
 
     setEditingTxn(null);
@@ -28,9 +39,7 @@ function Transactions() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">
-          Transactions
-        </h1>
+        <h1 className="text-3xl font-bold text-white">Transactions</h1>
         <p className="text-slate-400 mt-1">
           Add, edit and manage your transactions
         </p>

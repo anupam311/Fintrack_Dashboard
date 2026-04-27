@@ -1,10 +1,20 @@
-import { defaultTransactions } from "../data/categories";
+import { useEffect, useState } from "react";
 import { calculateTotals } from "../utils/calculateTotals";
 import { formatCurrency } from "../utils/formatCurrency";
 import StatCard from "../components/StatCard";
 
 function Dashboard() {
-  const totals = calculateTotals(defaultTransactions);
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("transactions");
+
+    if (saved) {
+      setTransactions(JSON.parse(saved));
+    }
+  }, []);
+
+  const totals = calculateTotals(transactions);
 
   return (
     <div className="space-y-6">
@@ -17,7 +27,6 @@ function Dashboard() {
         </p>
       </div>
 
-      {/* Stat Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <StatCard
           title="Total Balance"
