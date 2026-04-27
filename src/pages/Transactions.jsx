@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { defaultTransactions } from "../data/categories";
 import TransactionList from "../components/TransactionList";
+import TransactionForm from "../components/TransactionForm";
 
 function Transactions() {
+  const [transactions, setTransactions] = useState(defaultTransactions);
+
+  function addTransaction(newTxn) {
+    setTransactions((prev) => [newTxn, ...prev]);
+  }
+
   return (
     <div className="space-y-6">
       <div>
@@ -9,11 +17,13 @@ function Transactions() {
           Transactions
         </h1>
         <p className="text-slate-400 mt-1">
-          View all your financial activity
+          Add and manage your financial activity
         </p>
       </div>
 
-      <TransactionList transactions={defaultTransactions} />
+      <TransactionForm onAdd={addTransaction} />
+
+      <TransactionList transactions={transactions} />
     </div>
   );
 }
