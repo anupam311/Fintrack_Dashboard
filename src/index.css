@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+
+  --color-background: #0b1326;
+  --color-surface: #171f33;
+  --color-surface-low: #131b2e;
+  --color-surface-high: #222a3d;
+  --color-primary: #0ea5e9;
+  --color-secondary: #4fdbc8;
+  --color-tertiary: #c0c1ff;
+  --color-error: #ffb4ab;
+  --color-text-main: #dae2fd;
+  --color-text-muted: #bec8d2;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #0b1326;
+  color: #dae2fd;
+}
+
+.glass-card {
+  background: rgba(23, 31, 51, 0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.form-input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 0.9rem;
+  color: white;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #0ea5e9;
+}
+
+.primary-btn {
+  background: #0ea5e9;
+  color: #00111f;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  filter: brightness(1.1);
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #bec8d2;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+}
+
+.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
