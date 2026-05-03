@@ -12,15 +12,15 @@ function TransactionList({ transactions, onDelete, onEdit }) {
   return (
     <div className="glass-card rounded-xl overflow-hidden">
       <table className="w-full text-left">
-        <thead className="bg-white/5">
+        <thead className="thead-bg">
           <tr>
-            <th className="px-5 py-3 text-xs text-slate-400">Date</th>
-            <th className="px-5 py-3 text-xs text-slate-400">Title</th>
-            <th className="px-5 py-3 text-xs text-slate-400">Category</th>
-            <th className="px-5 py-3 text-xs text-slate-400 text-right">
+            <th className="px-5 py-3 text-xs text-secondary">Date</th>
+            <th className="px-5 py-3 text-xs text-secondary">Title</th>
+            <th className="px-5 py-3 text-xs text-secondary">Category</th>
+            <th className="px-5 py-3 text-xs text-secondary text-right">
               Amount
             </th>
-            <th className="px-5 py-3 text-xs text-slate-400 text-right">
+            <th className="px-5 py-3 text-xs text-secondary text-right">
               Actions
             </th>
           </tr>
@@ -35,7 +35,7 @@ function TransactionList({ transactions, onDelete, onEdit }) {
                 {txn.title}
               </td>
 
-              <td className="px-5 py-4 text-slate-400">
+              <td className="px-5 py-4 text-secondary">
                 {txn.category}
               </td>
 

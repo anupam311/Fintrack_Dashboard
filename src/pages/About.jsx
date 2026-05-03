@@ -3,20 +3,20 @@ function About() {
     <div className="space-y-6">
       {/* Title */}
       <div>
-        <h1 className="text-3xl font-bold text-white">
+        <h1 className="text-3xl font-bold">
           About FinTrack
         </h1>
-        <p className="text-slate-400 mt-1">
+        <p className="text-secondary mt-1">
           A personal finance dashboard built using React
         </p>
       </div>
 
       {/* Project Description */}
       <div className="glass-card p-5 rounded-xl space-y-3">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-bold">
           Project Overview
         </h2>
-        <p className="text-slate-300 text-sm leading-relaxed">
+        <p className="text-secondary text-sm">
           FinTrack is a frontend-based financial dashboard that helps users
           manage their income and expenses efficiently. It provides a clear
           visual representation of financial data using charts and real-time
@@ -26,11 +26,11 @@ function About() {
 
       {/* Features */}
       <div className="glass-card p-5 rounded-xl space-y-3">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-bold">
           Key Features
         </h2>
 
-        <ul className="list-disc pl-5 text-sm text-slate-300 space-y-1">
+        <ul className="text-secondary list-disc pl-5 text-sm space-y-1">
           <li>Add, edit and delete transactions (CRUD)</li>
           <li>Persistent data using localStorage</li>
           <li>Dashboard with income, expense and balance summary</li>
@@ -43,11 +43,11 @@ function About() {
 
       {/* Tech Stack */}
       <div className="glass-card p-5 rounded-xl space-y-3">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-bold">
           Tech Stack
         </h2>
 
-        <ul className="list-disc pl-5 text-sm text-slate-300 space-y-1">
+        <ul className="text-secondary list-disc pl-5 text-sm space-y-1">
           <li>React (Vite)</li>
           <li>JavaScript (ES6+)</li>
           <li>Tailwind CSS</li>
@@ -59,11 +59,11 @@ function About() {
 
       {/* Working Explanation */}
       <div className="glass-card p-5 rounded-xl space-y-3">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-bold">
           How It Works
         </h2>
 
-        <p className="text-slate-300 text-sm leading-relaxed">
+        <p className="text-secondary text-sm leading-relaxed">
           The application stores transactions in localStorage. When the user
           adds or modifies a transaction, the state is updated and saved. The
           dashboard and reports pages read from the same stored data to ensure
@@ -73,11 +73,11 @@ function About() {
 
       {/* Future Scope */}
       <div className="glass-card p-5 rounded-xl space-y-3">
-        <h2 className="text-xl font-bold text-white">
+        <h2 className="text-xl font-bold">
           Future Improvements
         </h2>
 
-        <ul className="list-disc pl-5 text-sm text-slate-300 space-y-1">
+        <ul className="text-secondary list-disc pl-5 text-sm space-y-1">
           <li>Backend integration for real user accounts</li>
           <li>Authentication and login system</li>
           <li>Real-time syncing across devices</li>

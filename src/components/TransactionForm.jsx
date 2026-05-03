@@ -51,7 +51,7 @@ function TransactionForm({ onAdd, editingTxn, onUpdate }) {
 
   return (
     <form onSubmit={handleSubmit} className="glass-card p-5 rounded-xl space-y-4">
-      <h2 className="text-xl font-bold text-white">
+      <h2 className="text-xl font-bold">
         {editingTxn ? "Edit Transaction" : "Add Transaction"}
       </h2>
 

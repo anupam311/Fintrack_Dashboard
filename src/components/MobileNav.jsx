@@ -9,7 +9,7 @@ const links = [
 
 function MobileNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-slate-900 border-t border-white/10 flex items-center justify-around z-50">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 mobile-nav bg-slate-950 border-t border-white/5 flex justify-around items-center">
       {links.map((link) => (
         <NavLink
           key={link.path}

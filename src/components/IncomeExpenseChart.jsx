@@ -11,10 +11,10 @@ import {
 function IncomeExpenseChart({ data }) {
   return (
     <div className="glass-card rounded-xl p-5">
-      <h2 className="text-xl font-bold text-white mb-1">
+      <h2 className="text-xl font-bold mb-1">
         Income vs Expense
       </h2>
-      <p className="text-slate-400 text-sm mb-5">
+      <p className="text-secondary text-sm mb-5">
         Visual comparison of income and expenses
       </p>
 

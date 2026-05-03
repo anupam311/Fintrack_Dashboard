@@ -19,10 +19,10 @@ function Dashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">
+        <h1 className="text-3xl font-bold">
           Financial Overview
         </h1>
-        <p className="text-slate-400 mt-1">
+        <p className="text-secondary mt-1">
           Summary of your income and expenses
         </p>
       </div>

@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import WalletModel from "./WalletModel";
 
 const links = [
   { path: "/", label: "Dashboard", icon: "📊" },
@@ -9,17 +11,20 @@ const links = [
 ];
 
 function Sidebar() {
+  const [openWallet, setOpenWallet] = useState(false);
+
   return (
-    <aside className="hidden md:flex flex-col h-screen sticky top-0 w-64 bg-slate-950 border-r border-white/5">
+    <>
+    <aside className="sidebar hidden md:flex flex-col h-screen sticky top-0 w-64 bg-slate-950 border-r border-white/5">
       <div className="p-6">
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-black">
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center">
             ₹
           </div>
 
           <div>
-            <h1 className="text-lg font-black text-white">FinTrack</h1>
-            <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">
+            <h1 className="text-lg font-bold">FinTrack</h1>
+            <p className="text-secondary text-[10px] uppercase tracking-widest font-bold">
               Precision Wealth
             </p>
           </div>
@@ -35,7 +40,7 @@ function Sidebar() {
                 `flex items-center gap-3 px-4 py-3 text-sm transition ${
                   isActive
                     ? "bg-sky-500/10 text-sky-400 border-r-2 border-sky-500 font-semibold"
-                    : "text-slate-400 hover:bg-white/5 hover:text-white"
+                    : "navlink"
                 }`
               }
             >
@@ -47,11 +52,17 @@ function Sidebar() {
       </div>
 
       <div className="mt-auto p-6">
-        <button className="w-full py-3 bg-primary text-slate-950 font-bold rounded-xl">
+        <button 
+          onClick={() => setOpenWallet(true)}
+          className="w-full py-3 primary-btn"
+        >
           Connect Wallet
         </button>
       </div>
     </aside>
+
+    <WalletModel open={openWallet} onClose={() => setOpenWallet(false)} />
+    </>
   );
 }
 

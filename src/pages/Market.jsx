@@ -91,8 +91,8 @@ function Market() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Crypto Market</h1>
-        <p className="text-slate-400 mt-1">
+        <h1 className="text-3xl font-bold">Crypto Market</h1>
+        <p className="text-secondary mt-1">
           Search and explore the top 100 cryptocurrencies
         </p>
       </div>
@@ -126,13 +126,13 @@ function Market() {
         <>
           <div className="glass-card rounded-xl overflow-hidden">
             <table className="w-full text-left">
-              <thead className="bg-white/5">
+              <thead className="thead-bg">
                 <tr>
-                  <th className="px-5 py-3 text-xs text-slate-400">#</th>
-                  <th className="px-5 py-3 text-xs text-slate-400">Coin</th>
-                  <th className="px-5 py-3 text-xs text-slate-400">Price</th>
-                  <th className="px-5 py-3 text-xs text-slate-400">24h</th>
-                  <th className="px-5 py-3 text-xs text-slate-400">
+                  <th className="text-secondary px-5 py-3 text-xs">#</th>
+                  <th className="text-secondary px-5 py-3 text-xs">Coin</th>
+                  <th className="text-secondary px-5 py-3 text-xs">Price</th>
+                  <th className="text-secondary px-5 py-3 text-xs">24h</th>
+                  <th className="text-secondary px-5 py-3 text-xs">
                     Market Cap
                   </th>
                 </tr>
@@ -205,7 +205,7 @@ function Market() {
               Prev
             </button>
 
-            <span className="text-slate-400">
+            <span className="text-secondary">
               Page {page} of {totalPages || 1}
             </span>
 

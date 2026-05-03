@@ -39,8 +39,8 @@ function Transactions() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Transactions</h1>
-        <p className="text-slate-400 mt-1">
+        <h1 className="text-3xl font-bold">Transactions</h1>
+        <p className="text-secondary mt-1">
           Add, edit and manage your transactions
         </p>
       </div>
