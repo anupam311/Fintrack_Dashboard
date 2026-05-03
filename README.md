@@ -6,7 +6,7 @@ A modern financial dashboard built using **React + Vite**, designed to manage tr
 
 ## 🚀 Live Demo
 
-🔗 
+🔗 https://fintrack-dashboard-rosy.vercel.app/
 
 ---
 
